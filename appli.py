@@ -4,7 +4,7 @@ from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
 import os
 import base64
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 from gtts import gTTS
 
 app = Flask(__name__)
@@ -98,10 +98,7 @@ def read_email():
         ).decode(errors="ignore")
 
     # 🔥 Translate to Tamil
-    translator = Translator()
-    translated = translator.translate(body, dest="ta")
-    tamil_text = translated.text
-
+    tamil_text = GoogleTranslator(source='auto', target='ta').translate(body)
     # 🔊 Create Tamil Voice
     tts = gTTS(text=tamil_text, lang="ta")
     tts.save("voice.mp3")
