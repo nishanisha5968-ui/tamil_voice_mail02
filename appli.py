@@ -107,7 +107,6 @@ def read_email():
     tts.save("voice.mp3")
 
     # 🔥 Windows auto play
-    os.startfile("voice.mp3")
 
     return f"<h3>Tamil Meaning:</h3><pre>{tamil_text}</pre>"
 
