@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tamil Email Voice Reader</title>
+</head>
+<body>
+
+    <h2>Tamil Email Voice Reader</h2>
+
+    {% if not logged_in %}
+        <a href="/login">
+            <button>Login with Google</button>
+        </a>
+    {% endif %}
+
+    {% if logged_in %}
+        <a href="/logout">
+            <button>Logout</button>
+        </a>
+
+        <h3>Latest Emails:</h3>
+        <ul>
+            {% for email in emails %}
+                <li>{{ email }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+</html>
